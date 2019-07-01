@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>Hello, world!</title>
+  </head>
+  <body>
+    <div class="container my-5 text-center">
+        <button class="btn btn-danger w-100" onclick='traer()'>Obtener</button>
+        <div class="mt-5">
+        
+                <table class="table">
+                        <thead>
+                          <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">NOMBRE</th>
+                            <th scope="col">EMAIL</th>
+                            <th scope="col">ESTADO</th>
+                          </tr>
+                        </thead>
+                        <tbody id="contenido">
+            
+                        </tbody>
+                      </table>
+        
+    </div>
+    </div>
+    <script>
+
+    var contenido = document.querySelector("#contenido")
+        function traer() {
+          //fetch por defecto toma el metodo get
+          //obtenemos resultado por un promesa que pasamos con then
+        //hacemos un parse de json a object
+        //then son promesa que esta hecha desde el fetch
+            fetch('tabla.json')
+            .then(res => res.json())
+            .then(datos => {
+            // console.log(datos);
+            tabla(datos);
+            })
+        }
+    
+        function tabla(datos){
+                console.log(datos);
+                //estos remplaza al html que tiene contenido la etiquea
+                contenido.innerHTML='';
+
+                for (let valor of datos) {
+                    // console.log(valor.nombre);
+                    contenido.innerHTML+=`
+                    
+                    <tr>
+                            <th scope="row">${valor.id}</th>
+                            <td>${valor.nombre}</td>
+                            <td>${valor.email}</td>
+                            <td>${valor.estado ? "Activo":"Inactivo"}</td>
+                    </tr>
+                    `; //sentencia condicional de if en linea
+                    //magia del temple de usar es comilla
+                }
+                
+            }
+
+
+    
+
+
+
+    
+    </script>
+  </body>
+</html>

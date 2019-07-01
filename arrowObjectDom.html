@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="saludo"></h1>
+    <h1 id="suma">EL RESULTADO DE LA SUMA ES: </h1>
+
+
+<!-- <script src="javas{cript.js"></script> -->
+
+<script>
+
+var numero=1;
+const numero2=10;
+var numero3=8;
+
+// alert(numero);
+var arreglo=[1,"hola", true, 2.5];
+
+console.log(arreglo);
+
+
+
+//---------------CLASE DEL MANEJO DE DOM FALTA
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//----------------------------------------------------
+
+
+
+
+//funciones ARROW LO MAS RECIENTE DEL 2018 
+
+//primero hacer enfasis en obtener parte de dom referente a ese id osea el h1
+var saludo= document.getElementById("saludo")
+
+//creo mi funcion arrow nombre de la funcion
+//luego parametro o parametros a recibir
+//Por ultimo accion o retorno de la funcion
+var saludar = nombre => "hola "+nombre;
+
+//usando el parte del DOM identificado 
+//y el metodo innerHTML para escribir llamos la funcion saludar
+saludo.innerHTML=saludar("CARLOS");
+
+
+
+//FUNCION MAS COMPLEJA
+
+var suma = document.getElementById("suma")
+
+//FUNCION MAS COMPLEJA
+var sumar = (numero, numero2) => {
+   var numero3= 10;
+   return numero3+numero+numero2;
+}
+//pintamos algo en pantalla en elemento de document que hemos capturado
+//le concatenamos al texto ya escrito
+suma.innerHTML +=sumar(10,12);
+
+
+
+
+
+
+
+
+
+
+
+
+//------------------------------objetos clase 7-------------
+//estos es un objeto   y consumir API  atraves de link
+var objecto = {
+    nombre: 'HTML',
+    duracion: 15,
+    estado: true
+}
+
+console.log(objecto);
+//como asceder a lo de adentro forma basica
+console.log(objecto['nombre']);
+
+//forma mas rapida y con menos linea
+console.log(objecto.nombre);
+
+//
+
+//objeto dentro de otro
+var objecto = {
+    nombre: 'HTML',
+    duracion: 15,
+    estado: true,
+    capitulos: {
+        nombre: 'PROGRAMACION',
+        videos: 20
+    }
+}
+
+//forma mas rapida y con menos linea
+console.log(objecto.capitulos.nombre);
+
+
+//array de objectos
+var arrayObjetos = [
+    {
+        nombre: 'HTML',
+        estado: true
+    },
+    {
+        nombre: 'CSS',
+        estado: false
+    },
+    {
+        nombre: 'JAVA',
+        estado: true
+    }
+]
+
+console.log(arrayObjetos);
+
+//acceder a un objeto
+console.log(arrayObjetos[2].nombre);
+
+//acceder al nombre del objeto
+for(let indice of arrayObjetos){
+   console.log(indice.nombre) 
+}
+
+
+
+//-----------UTILIZANDO FECTCH EN JAVASCRIPT CAPITULO 8 -----//
+
+//con fetch vamos a havcer peticiones y atraves de post pedi
+
+
+
+//con fetcj se puede leer archivos
+//EN EL INDEX1
+
+
+
+
+
+
+
+
+
+
+</script>
+
+
+
+</body>
+</html> 

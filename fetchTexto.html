@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>Hello, world!</title>
+  </head>
+  <body>
+    <div class="container my-5 text-center">
+        <button class="btn btn-danger w-100" onclick='traer()'>Obtener</button>
+        <div class="mt-5" id="contenido">
+            <p></p>
+        </div>
+    </div>
+
+    <script>
+    //--- APRENDER A HACER UN LIVE SERVER PORT 5500
+
+
+    //-----------UTILIZANDO FECTCH EN JAVASCRIPT CAPITULO 8 -----//
+
+    //con fetch vamos a havcer peticiones y atraves de post pedi
+
+    //capturaremos datos usando query selector
+    
+    //con esta comillas especiales ´´ nos permite
+    //manejar temples de manera literarios
+    //podremos mesclar html con css
+    //SACAR ESA TILDE INVERTIDA ES ALT 96
+    
+    var contenido = document.querySelector("#contenido")
+        function traer() {
+            // contenido.innerHTML = `<p>HOLA</p>`;
+        
+//FETCH API ENTRE PARENTESIS TOMA UN URL UBICACION EXACTA
+//FETCH HACE UNA PROMESA  ATRAVES DE THEN
+//ESTE THEN ES UNA PROMESA OSEA QUE NECESITO CAPTURAR
+//ALGO PERO TU ME PROMETES QUE ME VAS A TRAER UNA RESPUESTA
+
+//.then(data => data.text()) -> hacemos la promesa que estamos
+// trayendo un datos pero como ese datos viene en texto
+//debemos transformalo en algo que podamos entenderlo
+//por eso hacemos data.text() lo traforma
+
+//.then(data => { --> hacemos otra promesa con este dato tranformado
+    //para manipularlo ahora pintamos con el innerHtml
+
+
+// como ponemos una variable de javascript dentro
+//de un html siempre y cuando sea ese tipo de comilla
+// contenido.innerHTML = `${data}`;
+
+
+            fetch('texto.txt').then(data => data.text()).then(data=>{
+                console.log(data)
+                contenido.innerHTML = `${data}`;
+            })
+        
+        }
+    
+
+    
+
+
+
+    
+    </script>
+  </body>
+</html>
