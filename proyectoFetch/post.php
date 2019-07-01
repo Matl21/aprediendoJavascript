@@ -13,7 +13,7 @@ $pass = $_POST['pass'];
 if ($usuario==="" || $pass==="" ) {
     //RECUERDA QUE FETCH RESPONDE Y RECIBE EN FORMATOS 
     //DIFERENTE EN ESTE CASO JSONN
-    echo json_encode('LLENA TODOS LO CAMPOS');
+    echo json_encode('error');
 }else{
     echo json_encode('correcto: <br>Usuario:'.$usuario.'<br>pass:'.$pass);
 

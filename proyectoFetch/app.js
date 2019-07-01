@@ -5,7 +5,7 @@ console.log("funcionado");
 //muchas opciones
 
 var formulario=document.getElementById("formulario");
-
+var respuesta=document.getElementById("respuesta");
 //VAMOS detectar lo que usuario escriba no saltaremos onclick 
 //no es muy elegante ni al mejor forma si no que usaremos lo eventos
 
@@ -52,6 +52,22 @@ formulario.addEventListener('submit', function(e){
     }).then(res => res.json())
       .then(data =>{
           console.log(data);
+          if(data=="error"){
+            respuesta.innerHTML=
+          `<div class="alert alert-danger" role="alert">
+          LLLENA TODOS LO CAMPO
+           </div>`;
+          }else{
+            respuesta.innerHTML=
+          `<div class="alert alert-primary" role="alert">
+          ${data}
+           </div>`;
+          }
+          
       })
 
 })
+
+//interactuando con fetch y mi javascript
+//todo de forma asincrono es decir de forma inmediata y sin refrescar tenemos
+//la respuesta inmediata de nuestro archivo php.!!
