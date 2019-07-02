@@ -1,12 +1,12 @@
 
 
-//Funciones simples
+//Funcione simples
 function suma(dato1, datos2){
     return (dato1+datos2);
 }
 
 //FUNCIONES ANONIMAS SON LA QUE NO LLEVAN NOMBRE EJEMPLO DE ELLO ES LA FUNCION(e)
-// formulario.addEventListener('submit', function(e){});
+ formulario.addEventListener('submit', function(e){ return null});
 
 //FUNCIONES ARROW 
 //funcion arrow facilmente devuelve el resultado implitamente esta el return
@@ -28,3 +28,4 @@ console.log(suma(1,2));
 
 
 console.log(sumar(1,2));
+

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>DOCUMENTO INDEXADO</title>
+</head>
+<body>
+    
+    <div class="container mt-5">
+        <h1>
+            BUSCADOR INDEXADO
+        </h1>
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+        <input type="text" id="formulario" class="form-control">
+        <button class="btn btn-primary" id="boton">BUSCAR</button>
+
+        <ul id="resultado">
+           
+        </ul>
+        
+    </div>
+
+
+    <script>
+
+//arreglo de objeto
+        const producto = [
+            {nombre: 'platano', valor: 500},
+            {nombre: 'guineo', valor: 400},
+            {nombre: 'cereza', valor: 100},
+            {nombre: 'papaya', valor: 12},
+            {nombre: 'fresa', valor: 500},
+            {nombre: 'coco ', valor: 21},
+
+        ]
+
+
+
+        const formulario = document.querySelector('#formulario');
+        const resultado = document.querySelector("#resultado")
+        const boton = document.querySelector('#boton');
+        // const boton1 =document.getElementById("boton");
+
+        // boton.addEventListener('click', function(){
+        //     console.log(formulario.value);
+
+        // })
+
+        const filtrar = ()=> {
+            var comparacion = formulario.value.toLowerCase();
+            resultado.innerHTML = '';
+
+            producto.forEach(product => {
+                let nombre = product.nombre.toLowerCase();
+    
+
+                //
+                if (nombre.indexOf(comparacion)!==-1) {
+                    resultado.innerHTML += `
+                    <li>${product.nombre} - valor ${product.valor}  </li>
+                    `;
+                }
+            });
+
+                if (resultado.innerHTML=='') {
+                    resultado.innerHTML += `
+                    <li>Producto no encontrado  </li>
+                    `;
+                }
+
+
+
+
+
+        }
+
+        boton.addEventListener('click', filtrar);
+        formulario.addEventListener('keyup', filtrar);
+
+        //ahora ejecuto filtra
+        filtrar();
+        
+    
+
+
+    </script>
+
+</body>
+</html>

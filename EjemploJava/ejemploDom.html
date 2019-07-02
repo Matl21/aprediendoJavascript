@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>Aprendiendo Vanilla</title>
+  </head>
+   
+  <body>
+      <div class="container mt-5">
+          <h1 class="display-4 center" id="titulo">USANDO EL DOM</h1>
+            <p id="parrafo">Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia, odio quae. Temporibus, cupiditate asperiores incidunt sit totam consequuntur esse? Quisquam officia, laboriosam quam cumque labore consequuntur maxime voluptas illum numquam?</p>
+
+            <button id="boton" class="btn btn-info"  >Cambio</button>
+      </div>
+      
+      <script>
+
+        var titulo= document.getElementById('titulo');
+        console.log(titulo.innerHTML);
+
+
+        var titulos=document.querySelector("#titulo");
+        console.log(titulos.innerHTML);
+
+        titulos.innerHTML="NUEVO TEXTO";
+
+        //le asignamos una propiedad css
+        // titulo.style.color="red";
+        titulo.style.background="blue";
+
+
+
+        document.getElementById("boton").addEventListener('onchange' , function(){
+            alert('has dado click en el boton');
+            titulo.style.color="red";
+        })
+
+
+
+      </script>
+
+
+
+
+
+      <script src="app.js"></script>
+  </body>
+</html>
+
