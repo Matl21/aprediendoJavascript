@@ -8,47 +8,59 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-    <title>Hello, world!</title>
+    <title>Fetch API</title>
   </head>
   <body>
-    <div class="container my-5 text-center">
-        <button class="btn btn-danger w-100" onclick='traer()'>Obtener</button>
+      <div class="container text-center">
+        <h1>API POKEDEX</h1>
+      
+
+
+        <div class="container mt-5">
+          <label for="pokemon text-center"> <strong>POKEMON:</strong> </label>
+          <input type="text" name="pokemon" id="dato" class="form-control mt-2 text-center">
+          <button class="btn btn-primary w-50 form-control mt-2" id="traer">OBTENER</button>
+          
+        </div>
+        
         <div class="mt-5" id="contenido">
           
-
         </div>
-    </div>
+    
 
+          
+
+
+    
     <script>
 
-//aprendiendo a usar API publica usando fetch y su metodo get que trae por defecto.
+      //aprendiendo a usar API publica usando fetch y su metodo get que trae por defecto.
 
-    var contenido = document.querySelector("#contenido")
-        function traer() {
-          //fetch por defecto toma el metodo get
-          //obtenemos resultado ramdon por el que asi es la api
-            fetch('https://randomuser.me/api/')
+     var contenido = document.querySelector("#contenido")
+     
+     document.querySelector("#traer").addEventListener('click', function(){
+
+            var pokemon=document.querySelector('#dato').value.toLowerCase();
+
+            fetch('https://pokeapi.co/api/v2/pokemon/'+pokemon)
             .then(res => res.json())
             .then(data => {
-            console.log(data.results['0'].email)
+            
+            console.log(data)
             
             //pasar lo datos a mi html 
             contenido.innerHTML= `
-            <img src="${data.results['0'].picture.large}"  width="100px" class="img-fluid rounded-cicle"> 
-            <p>Nombre: ${data.results['0'].name.last}</p>  
+            <img src="${data.sprites.front_default}"  class="bg-dark" width="200px" border="3">
+            
+            <div class="container">
+            <p>NOMBRE: ${data.species.name.toUpperCase()} </p>
+            <p>HABILIDAD 1 : ${data.abilities[0].ability.name.toUpperCase()} </p>
+            </div>
             `;
             
-            })               
-                
-                // contenido.innerHTML = `${data}`;
-           
-        
-        }
-    
+            }).catch(e => {contenido.innerHTML= `POKEMON NO ENCONTRADO`; return console.error( "Este pokemon no ha sido encontrado");  })
 
-    
-
-
+    })    
 
     
     </script>
